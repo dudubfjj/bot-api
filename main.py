@@ -23,7 +23,7 @@ async def ping(ctx):
 async def hello(ctx):
     await ctx.send("Choo choo! 🚅")
     
-@client.command('hora', help="!hora informa a Data e Hora atual.")
+@bot.command('hora', help="!hora informa a Data e Hora atual.")
 async def send_time(ctx):
     now = datetime.datetime.now()
     now = now.strftime("%d/%m/%Y às %H:%M:%S")
