@@ -67,14 +67,13 @@ async def get_url(ctx, id_gc):
     response = requests.get(url, cookies=cookies, headers=headers)
 
 
-    if 'json' in response.headers.get('Content-Type'):
-        js = response.json()
-    else:
-        await ctx.send('Response content is not in JSON format.')
-        js = 'spam'
+    try:
+        data = response.json()
+    except ValueError:
+        await ctx.send("Response content is not valid JSON")
 
 
-    estatisticas = js['stats']
+    estatisticas = data['stats']
 
     stat = []
     value = []
