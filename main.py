@@ -5,7 +5,6 @@ import discord
 from discord.ext import commands
 import requests
 import datetime
-from bs4 import BeautifulSoup
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -67,9 +66,8 @@ async def get_url(ctx, id_gc):
 
     response = requests.get(url, cookies=cookies, headers=headers)
 
-    soup = BeautifulSoup(response.content, 'html.parser')
-    await ctx.send(soup.get_text())
-
+    print(response)
+    print(response.content)
 
     try:
         data = response.json()
