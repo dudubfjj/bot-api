@@ -68,7 +68,6 @@ async def get_url(ctx, id_gc):
 
     print(url)
     print(response)
-    print(response.content)
 
 
     data = []
@@ -77,8 +76,9 @@ async def get_url(ctx, id_gc):
     except ValueError:
         await ctx.send("Response content is not valid JSON")
 
+    print(data)
 
-    estatisticas = data['stats']
+    """estatisticas = data['stats']
 
     stat = []
     value = []
@@ -92,7 +92,7 @@ async def get_url(ctx, id_gc):
                 value.append(value_of_dict)
 
     for s, v in zip(stat, value):
-        await ctx.send(f'{s} = {v}')
+        await ctx.send(f'{s} = {v}')"""
 
 
 #BANCO DE DADOS DE ID'S - GC
