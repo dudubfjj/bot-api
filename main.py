@@ -67,8 +67,6 @@ async def get_url(ctx, id_gc):
     response = requests.get(url, cookies=cookies, headers=headers)
 
     await ctx.send(response)
-    await ctx.send(response.content)
-
 
     ola = response.json()
 
