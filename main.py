@@ -69,6 +69,8 @@ async def get_url(ctx, id_gc):
 
     data = json.dumps(response)
 
+    print(data)
+
 
     estatisticas = data['stats']
 
