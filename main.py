@@ -71,9 +71,9 @@ async def get_url(ctx, id_gc):
     print(response.content)
 
 
-    data = {}
+    data = []
     try:
-        data = response.json()
+        data.append(response.json())
     except ValueError:
         await ctx.send("Response content is not valid JSON")
 
