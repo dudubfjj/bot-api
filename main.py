@@ -81,4 +81,33 @@ async def get_url(ctx, id_gc):
         await ctx.send(f'{s} = {v}')
 
 
+#BANCO DE DADOS DE ID'S - GC
+@bot.command(name='showids', help="!showids mostra o nosso cadastro de id's da GamersClub")
+async def show_ids(ctx):    
+    cadastro = open('cadastro_id.txt', 'r')
+    for n in cadastro.readlines():
+        n = n.split(':')
+        await ctx.send(f'{n[0]}: id = {n[1]}')
+    cadastro.close()
+    
+#CADASTRANDO NOVAS ID'S
+@bot.command(name='cadastrar', help='!cadastrar e após o nick e id da GC para cadastrar uma nova id. Ex: !cadastrar dudu 322861')
+async def cadastrar_ids(ctx, nickname, id_gc):
+    cadastro = open('cadastro_id.txt','r+')
+    if id_gc in cadastro.read():
+        await ctx.send('Nosso banco de cadastros já possui este ID.')
+    else:
+        cadastro.writelines(f'\n{nickname}:{id_gc}')
+        await ctx.send('Nickname e id cadastrados com sucesso!')
+    cadastro.close()
+
+#MUNDI UP
+@bot.command(name='fm', help="!fm para saber como conseguir o update mais recente do Football Manager.")
+async def get_fm_update(ctx):
+    url = 'https://www.facebook.com/BrasilMundiUP'
+    response = f"Para comprar o update mais recente do FM, acesse {url} e mande uma mensagem no chat da Brasil MundiUP"
+    await ctx.send(response)
+
+
+
 bot.run(os.environ["DISCORD_TOKEN"])
