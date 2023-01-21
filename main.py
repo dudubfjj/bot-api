@@ -62,9 +62,15 @@ async def get_url(ctx, id_gc):
         'authority': 'gamersclub.com.br',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'}
 
-    response = requests.get(f'https://gamersclub.com.br/api/box/init/{322861}', cookies=cookies, headers=headers).json()
+    url = 'https://gamersclub.com.br/api/box/init/'+id_gc
 
-    config = open('response.json', 'r', encoding='utf-8')
+    response = requests.get(url, cookies=cookies, headers=headers)
+
+    await ctx.send(response)
+
+    ola = response.json()
+
+    config = open(ola, 'r', encoding='utf-8')
 
     await ctx.send(config)
    
