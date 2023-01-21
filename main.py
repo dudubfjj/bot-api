@@ -65,7 +65,7 @@ async def get_url(ctx, id_gc):
     url = 'https://gamersclub.com.br/api/box/init/'+id_gc
 
     response = requests.get(url, cookies=cookies, headers=headers)
-
+    await ctx.send(response.text())
 
     try:
         data = response.json()
