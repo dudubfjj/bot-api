@@ -66,9 +66,12 @@ async def get_url(ctx, id_gc):
 
     response = requests.get(url, cookies=cookies, headers=headers)
 
+    print(url)
     print(response)
     print(response.content)
 
+
+    data = {}
     try:
         data = response.json()
     except ValueError:
