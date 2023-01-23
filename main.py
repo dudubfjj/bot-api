@@ -68,6 +68,10 @@ async def get_url(ctx, id_gc):
 
     print(requests.get(url, cookies=cookies, headers=headers))
 
+    print(requests.get(url, cookies=cookies, headers=headers).headers)
+
+    print(requests.get(url, cookies=cookies, headers=headers).content)
+
     response = requests.get(url).json()
 
     estatisticas = response['stats']
