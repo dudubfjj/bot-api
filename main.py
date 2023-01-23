@@ -47,23 +47,42 @@ async def get_url(ctx, id_gc):
     '_gid': 'GA1.3.195961545.1673814267',
     '_hjDonePolls': '864076%2C865658%2C872356%2C873600',
     'gclubsess': 'dc5fe6cfa591881570c87e2c0cc989ec16fe9f16',
+    '_gat_UA-187315934-4': '1',
+    '_gat_UA-187315934-3': '1',
+    '_gat_UA-64910362-1': '1',
+    '_gat_UA-64910362-39': '1',
     '_hjIncludedInSessionSample': '0',
-    '_hjSession_2263196': 'eyJpZCI6ImEzZWNlZjAxLWVjZDEtNDM5Ny1hNjZjLWM4NjQyZjM0MGU5YiIsImNyZWF0ZWQiOjE2NzQyMzM1MDM1NTAsImluU2FtcGxlIjpmYWxzZX0=',
+    '_hjSession_2263196': 'eyJpZCI6IjllMWE5YTgwLWM5MGQtNDc0Ni1hNzcxLWYwODAyYTQwN2EzOCIsImNyZWF0ZWQiOjE2NzQ0ODM1ODk5MTgsImluU2FtcGxlIjpmYWxzZX0=',
     '_hjAbsoluteSessionInProgress': '0',
     '_hjHasCachedUserAttributes': 'true',
-    '__cf_bm': 'FaSi7Qur_bC7Ms8oMjKw3w38XsPQ7lD1aHfcT2g0Jj0-1674233353-0-Af90vhBup0uUKQMqGrOeK2c+x6QBLT/Uo3So7cPdLMGymPvjLdtSpDCLYcAT4wTGjiwfN69KpEVqM40YfXGYijBhTIHWdTBj6JYFTR8sMXiob7FWlI4xHAnoavMGhRuADdbSb+ReLAvsNbyCQdNBXfg=',
-    '_ga': 'GA1.3.159586927.1667412074',
+    '__cf_bm': 'BCs6R0YsMlmcfSK3nClwLf52Asf6JcmYq9COtc8v_yc-1674483589-0-AZiOm+QGx5eYR0JPXvycV8k1z8TYacvltKpbnyF/IKdh+OGsoH6SokENgBhMkPyk6z2btcmoMdaNx2B/R+69T3N3ij0stXRbPQLOQG6jnA9X7laRH82qB2vbVTyIQqcOlKbvtp32nf/JgDF5J3vBkeY=',
     'SL_C_23361dd035530_VID': 'LFlRfyq_0v',
     'SL_C_23361dd035530_KEY': 'a14d3638cda988422792e3613234743b983fdd9e',
-    '_ga_H7ETJY03DT': 'GS1.1.1674233503.232.1.1674234592.60.0.0',
-    '_ga_GDBFGFR1PC': 'GS1.1.1674233503.232.1.1674234592.60.0.0'}
+    '_ga_GDBFGFR1PC': 'GS1.1.1674483589.246.1.1674483608.41.0.0',
+    '_ga_H7ETJY03DT': 'GS1.1.1674483589.246.1.1674483609.40.0.0',
+    '_ga': 'GA1.1.159586927.1667412074',
+}
 
     headers = {
         'authority': 'gamersclub.com.br',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'}
+        'accept': 'application/json, */*',
+        'accept-language': 'en-US,en;q=0.9,pt;q=0.8,fr;q=0.7',
+        'referer': 'https://gamersclub.com.br/player/322861',
+        'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
+    }
 
-    url = 'https://gamersclub.com.br/api/box/history/'+id_gc+'?json'
+    url = 'https://gamersclub.com.br/api/box/init/322861'
 
+    response = requests.get(url, headers=headers, cookies=cookies)
+    print(response.content)
+
+    
     print(url)
 
     print(requests.get(url, cookies=cookies, headers=headers))
@@ -72,7 +91,7 @@ async def get_url(ctx, id_gc):
 
     print(requests.get(url, cookies=cookies, headers=headers).content)
 
-    response = requests.get(url).json()
+    #response = requests.get(url).json()
 
     estatisticas = response['stats']
 
