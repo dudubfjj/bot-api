@@ -76,15 +76,18 @@ async def get_url(ctx, id_gc):
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
+        'content-type': 'application/json'
     }
 
     url = 'https://gamersclub.com.br/api/box/init/322861'
 
-    response = requests.get(url, headers=headers, cookies=cookies)
+    response = requests.get(url, headers=headers, cookies=cookies).json
 
+    print(response)
+    
     resposta = json.loads(response)
 
-    print(resposta)
+    
 
  
     #print(url)
