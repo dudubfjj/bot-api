@@ -64,7 +64,7 @@ async def get_url(ctx, id_gc):
 
     url = 'https://gamersclub.com.br/api/box/init/'+id_gc
 
-    response = requests.get(url, cookies=cookies, headers=headers).json()
+    response = requests.get(url).json()
 
     estatisticas = response['stats']
 
