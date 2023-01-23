@@ -82,11 +82,11 @@ async def get_url(ctx, id_gc):
 
     url = 'https://gamersclub.com.br/api/box/init/322861'
 
-    response = requests.request("GET", url, headers=headers, cookies=cookies).json()
+    response = requests.get(url, headers=headers, cookies=cookies, params={'url': url, 'wait':2})
 
     print(response)
     
-    resposta = json.loads(response)
+    resposta = response.json()
 
     
 
