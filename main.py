@@ -6,6 +6,7 @@ from discord.ext import commands
 import requests
 import datetime
 import json
+import cfscrape
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -82,7 +83,8 @@ async def get_url(ctx, id_gc):
 
     url = 'https://gamersclub.com.br/api/box/init/322861'
 
-    response = requests.get(url, headers=headers, cookies=cookies, params={'url': url, 'wait':2})
+    scraper = cfscrape.create_scraper()
+    response = scraper.get(url, headers=headers, cookies=cookies)
 
     print(response)
     
